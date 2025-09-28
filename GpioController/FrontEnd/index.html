@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32-C6 GPIO Controller</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 50px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+            min-width: 400px;
+        }
+        h1 { color: #333; }
+        .esp-info { color: #666; margin-top: 20px; }
+        .gpio-controls {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .gpio-pin {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-on {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-off {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ESP32-C6 GPIO Controller</h1>
+        <p>Control your GPIO pins from this web interface</p>
+        
+        <div class="gpio-controls">
+            <div class="gpio-pin">
+                <span>GPIO Pin 2 (Built-in LED)</span>
+                <div>
+                    <button class="btn-on" onclick="controlGPIO(2, 'on')">ON</button>
+                    <button class="btn-off" onclick="controlGPIO(2, 'off')">OFF</button>
+                </div>
+            </div>
+            
+            <div class="gpio-pin">
+                <span>GPIO Pin 8</span>
+                <div>
+                    <button class="btn-on" onclick="controlGPIO(8, 'on')">ON</button>
+                    <button class="btn-off" onclick="controlGPIO(8, 'off')">OFF</button>
+                </div>
+            </div>
+        </div>
+        
+        <p class="esp-info">This page is running on ESP32-C6</p>
+        <p class="esp-info">Time: <span id="time"></span></p>
+        <p class="esp-info">Status: <span id="status">Ready</span></p>
+    </div>
+    
+    <script>
+        // Update time every second
+        setInterval(() => {
+            document.getElementById('time').innerHTML = new Date().toLocaleTimeString();
+        }, 1000);
+        
+        // GPIO Control Function - Ready for implementation
+        async function controlGPIO(pin, action) {
+            const statusElement = document.getElementById('status');
+            
+            try {
+                statusElement.innerHTML = `Controlling GPIO ${pin}...`;
+                
+                // TODO: Implement actual API call
+                // const response = await fetch(`/gpio/${pin}/${action}`, {method: 'POST'});
+                // const result = await response.json();
+                
+                // For now, just simulate success
+                setTimeout(() => {
+                    statusElement.innerHTML = `GPIO ${pin} turned ${action}`;
+                }, 500);
+                
+            } catch (error) {
+                statusElement.innerHTML = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

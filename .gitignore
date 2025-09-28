@@ -1,0 +1,66 @@
+# ESP32 MicroPython Development - Git Ignore
+
+# ====================================
+# Virtual Environment (DO NOT TRACK)
+# ====================================
+.venv/
+venv/
+env/
+ENV/
+pyvenv.cfg
+
+# Python virtual environment directories
+bin/
+lib/
+lib64
+include/
+share/
+
+# ====================================
+# Development Tools (DO NOT TRACK)
+# ====================================
+# VS Code settings
+.vscode/
+
+# MicroPico configuration
+.micropico
+
+# Upload scripts (development only)
+upload_project*.sh
+esp
+
+# ====================================
+# Documentation (DO NOT TRACK)
+# ====================================
+ESP32_GPIO_Control_Guide.md
+
+# ====================================
+# Python Generated Files
+# ====================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ====================================
+# Temporary Files
+# ====================================
+*.log
+*.tmp
+*.temp
+*~
+.DS_Store
+Thumbs.db
+
+# ====================================
+# Git Files
+# ====================================
+.git/
+
+# ====================================
+# ONLY TRACK THESE FILES:
+# ====================================
+# main.py (tracked)
+# GpioController/ (tracked)
+# README.md (tracked)
+# .gitignore (tracked)
