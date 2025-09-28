@@ -152,3 +152,123 @@ ESP32:/
 **Script says "File not found"**
 - Ensure you're running the script from the esp/ directory
 - Check that all project files exist in the correct locations
+
+## Git Version Control
+
+This project uses Git for version control, tracking only essential project files.
+
+### Basic Git Commands
+
+#### **Checking Status**
+```bash
+# See what files have changed
+git status
+
+# See detailed changes in files
+git diff
+
+# See changes for a specific file
+git diff main.py
+```
+
+#### **Adding Changes**
+```bash
+# Add specific files
+git add main.py
+git add GpioController/BackEnd/webserver.py
+git add README.md
+
+# Add all changed tracked files
+git add .
+
+# Add everything in GpioController folder
+git add GpioController/
+```
+
+#### **Committing Changes**
+```bash
+# Commit with message
+git commit -m "Add GPIO pin control functionality"
+
+# Commit with detailed message
+git commit -m "Fix WiFi connection issue
+
+- Updated connection timeout
+- Added better error handling
+- Improved status messages"
+```
+
+#### **Viewing History**
+```bash
+# Show commit history (one line per commit)
+git log --oneline
+
+# Show detailed commit history
+git log
+
+# Show last 5 commits
+git log -n 5
+
+# Show changes in each commit
+git log -p
+```
+
+#### **Working with Branches**
+```bash
+# Create new branch
+git branch feature/gpio-pwm
+
+# Switch to branch
+git checkout feature/gpio-pwm
+
+# Create and switch in one command
+git checkout -b feature/web-interface
+
+# List all branches
+git branch
+
+# Switch back to main branch
+git checkout master
+```
+
+#### **Undoing Changes**
+```bash
+# Discard changes in working directory
+git checkout -- main.py
+
+# Unstage a file (keep changes)
+git reset HEAD main.py
+
+# Reset to last commit (lose all changes)
+git reset --hard HEAD
+```
+
+### What's Tracked vs Ignored
+
+#### **Tracked Files (in Git):**
+- ✅ `main.py` - Main application
+- ✅ `GpioController/` - Project source code
+- ✅ `README.md` - Documentation
+- ✅ `.gitignore` - Git configuration
+
+#### **Ignored Files (not in Git):**
+- ❌ `.venv/`, `bin/`, `lib/` - Virtual environment
+- ❌ `.vscode/`, `.micropico` - Development tools
+- ❌ `upload_project*.sh`, `esp` - Upload scripts
+- ❌ `ESP32_GPIO_Control_Guide.md` - Learning materials
+
+### Common Workflow
+
+```bash
+# 1. Check what changed
+git status
+
+# 2. Add your changes
+git add main.py GpioController/
+
+# 3. Commit with message
+git commit -m "Implement GPIO control endpoints"
+
+# 4. View your progress
+git log --oneline
+```
